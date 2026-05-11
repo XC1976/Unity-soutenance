@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;   // Used for IEnumerator / Coroutine
+using UnityEngine.UI;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
@@ -36,6 +37,10 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public int health = 100;
     // We store the sprite renderer to make the player blink red when taking damage or other effects in the future 
     private SpriteRenderer _spriteRenderer;
+
+    // === Properties linked to the health bar in the UI === //
+
+    public Image healthImage;
     
     void Start()
     {
@@ -88,6 +93,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         // Check which animation to play
         SetAnimation(moveInput);
 
+        healthImage.fillAmount = health / 100f;
     }
 
     private void FixedUpdate()
