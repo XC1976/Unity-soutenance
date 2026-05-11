@@ -27,7 +27,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     // === Properties linked to double jump === //
 
-    public int extraJumpsValue = 2;
+    public int extraJumpsValue = 1;
 
     private int _extraJumpsLeft;
 
