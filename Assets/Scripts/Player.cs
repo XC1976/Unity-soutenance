@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;   // Used for IEnumerator / Coroutine
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
@@ -27,8 +28,15 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // === Properties linked to double jump === //
 
     public int extraJumpsValue = 2;
-    
+
     private int _extraJumpsLeft;
+
+    // === Properties linked to player taking damage === //
+    
+    public int health = 100;
+    // We store the sprite renderer to make the player blink red when taking damage or other effects in the future 
+    private SpriteRenderer _spriteRenderer;
+    
     void Start()
     {
         // Get the Rigidbody2D of the player
@@ -39,6 +47,9 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
         // Initialize the number of extraJumpsValue left
         _extraJumpsLeft = extraJumpsValue;
+
+        // To make the player blink red when taking damage
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -118,5 +129,44 @@ public class NewMonoBehaviourScript : MonoBehaviour
                 _animator.Play("Player_fall");
             }
         }
+    }
+
+    // Built-in Unity method that will trigger when an incoming collider makes contact
+    // with this object collider
+    // Link : https://docs.unity3d.com/6000.0/Documentation/ScriptReference/MonoBehaviour.OnCollisionEnter2D.html
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // If the player touches an object with the tag "Damageq"
+        if (collision.gameObject.tag == "Damage")
+        {
+            // Reduce 25 health
+            health -= 25;
+            // Create a knockback effect, it is basically the exact same thing as a player jump
+            _playerRigidBody.linearVelocity = new Vector2(_playerRigidBody.linearVelocity.x, jumpForce);
+
+            // Makes the player blink red
+            StartCoroutine(BlinkRed());
+
+            if (health <= 0)
+            {
+                Die();
+            }
+        }
+    }
+
+    // Makes the player blink red (takes damage)
+    // IEnumerator because it is used in a Coroutine, since it waits for 0.1 second
+    private IEnumerator BlinkRed()
+    {
+        _spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        // The default sprite color is white
+        _spriteRenderer.color = Color.white;
+    }
+
+    // Reload the scene, basically restart the game
+    private void Die()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Level1");
     }
 }
