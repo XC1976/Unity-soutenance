@@ -23,7 +23,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // === Propreties linked to animation === //
 
     private Animator _animator;
+
+    // === Properties linked to double jump === //
+
+    public int extraJumpsValue = 2;
     
+    private int _extraJumpsLeft;
     void Start()
     {
         // Get the Rigidbody2D of the player
@@ -31,6 +36,9 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
         // Get the Animator component
         _animator = GetComponent<Animator>();
+
+        // Initialize the number of extraJumpsValue left
+        _extraJumpsLeft = extraJumpsValue;
     }
 
     void Update()
@@ -46,14 +54,29 @@ public class NewMonoBehaviourScript : MonoBehaviour
         _playerRigidBody.linearVelocity = new Vector2(moveInput * moveSpeed, _playerRigidBody.linearVelocity.y);
 
         // If space key is pressed
-        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            // Same logic as left and right, the first argument does not affect anything, the second jumps
-            _playerRigidBody.linearVelocity = new Vector2(_playerRigidBody.linearVelocity.x, jumpForce);
+            if(_isGrounded) {
+                // Same logic as left and right, the first argument does not affect anything, the second jumps
+                _playerRigidBody.linearVelocity = new Vector2(_playerRigidBody.linearVelocity.x, jumpForce);
+            }
+            // Allows another jump if extra jump are left
+            else if (_extraJumpsLeft > 0) {
+                _playerRigidBody.linearVelocity = new Vector2(_playerRigidBody.linearVelocity.x, jumpForce);
+                // Substract one extra jump
+                _extraJumpsLeft--;
+            }
         }
 
+        // Resets the number of extra jumps allowed if the player touches the ground
+        if (_isGrounded)
+        {
+            _extraJumpsLeft = extraJumpsValue;
+        }
+        
         // Check which animation to play
         SetAnimation(moveInput);
+
     }
 
     private void FixedUpdate()
