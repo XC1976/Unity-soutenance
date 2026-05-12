@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;   // Used for IEnumerator / Coroutine
 using UnityEngine.UI;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
@@ -41,6 +41,10 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // === Properties linked to the health bar in the UI === //
 
     public Image healthImage;
+
+    // === Properties linked to coins === //
+
+    public int coins;
     
     void Start()
     {
