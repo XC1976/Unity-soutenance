@@ -177,6 +177,8 @@ public class Player : MonoBehaviour
     // Reload the scene, basically restart the game
     private void Die()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Level1");
+        // Ensures we load the correct scene if we die by loading the current active scene
+        // The built-in method between parenthesis returns the name of the current active scene
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 }
