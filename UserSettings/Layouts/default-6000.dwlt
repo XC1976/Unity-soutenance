@@ -322,7 +322,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_LastSelectedObjectID:
-    m_Data: 0
+    m_Data: -2520
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -718,7 +718,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/True 8-bit Sound Effect Collection - Lite/Wind
+    - Assets/Prefabs
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -728,22 +728,21 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 74
   m_LastFolders:
-  - Assets/True 8-bit Sound Effect Collection - Lite/Wind
+  - Assets/Prefabs
   m_LastFoldersGridSize: 74
   m_LastProjectPath: /home/user/Projects/Unity/Soutenance/source
   m_LockTracker:
     m_IsLocked: 0
   m_LastLocalAssetsSearchArea: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 316.5}
+    scrollPos: {x: 0, y: 79}
     m_SelectedIDs:
-    - m_Data: 54394
+    - m_Data: 54306
     m_LastClickedID:
-      m_Data: 54394
+      m_Data: 54306
     m_ExpandedIDs:
     - m_Data: 0
     - m_Data: 53998
-    - m_Data: 54318
     - m_Data: 1000000000
     - m_Data: 2147483647
     m_RenameOverlay:
@@ -807,10 +806,11 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: []
+    m_SelectedInstanceIDs:
+    - m_Data: -2520
     m_LastClickedEntityId:
-      m_Data: 0
-    m_HadKeyboardFocusLastEvent: 0
+      m_Data: -2520
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs:
     - m_Data: 51514
     - m_Data: 52124
@@ -940,16 +940,19 @@ MonoBehaviour:
     m_DynamicPanelBehavior: 0
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: []
+      scrollPos: {x: 0, y: 56.5}
+      m_SelectedIDs:
+      - m_Data: -2520
       m_LastClickedID:
-        m_Data: 0
+        m_Data: -2520
       m_ExpandedIDs:
-      - m_Data: -1388
+      - m_Data: -2154
+      - m_Data: -2152
+      - m_Data: -1382
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Point 2 (1)
+        m_OriginalName: Point 2 (1)
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
@@ -957,13 +960,13 @@ MonoBehaviour:
           width: 0
           height: 0
         m_UserData:
-          m_Data: 0
+          m_Data: -2520
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
-        m_ClientGUIView: {fileID: 0}
+        m_ClientGUIView: {fileID: 4}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootEntityId:
@@ -1011,12 +1014,12 @@ MonoBehaviour:
       displayed: 1
       id: unity-transform-toolbar
       index: 0
-      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Folded":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":2.0,"y":21.0},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":0,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
+      contents: '{"m_Layout":4,"m_Collapsed":false,"m_Folded":false,"m_Floating":false,"m_FloatingSnapOffset":{"x":2.0,"y":-263.5},"m_SnapOffsetDelta":{"x":0.0,"y":0.0},"m_FloatingSnapCorner":2,"m_Size":{"x":0.0,"y":0.0},"m_SizeOverridden":false}'
       floating: 0
       collapsed: 0
-      snapOffset: {x: 2, y: 21}
+      snapOffset: {x: 2, y: -263.5}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 0
+      snapCorner: 2
       layout: 4
       size: {x: 0, y: 0}
       sizeOverridden: 0
@@ -1570,9 +1573,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 9.520759, y: -0.18680969, z: 0.96879876}
+    m_Target: {x: 26.303831, y: -2.7938335, z: -0.03626648}
     speed: 2
-    m_Value: {x: 9.520759, y: -0.18680969, z: 0.96879876}
+    m_Value: {x: 26.303831, y: -2.7938335, z: -0.03626648}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1623,9 +1626,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 6.1978154
+    m_Target: 4.492678
     speed: 2
-    m_Value: 6.1978154
+    m_Value: 4.492678
   m_Ortho:
     m_Target: 1
     speed: 2
