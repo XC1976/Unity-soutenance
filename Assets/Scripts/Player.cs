@@ -45,6 +45,14 @@ public class Player : MonoBehaviour
     // === Properties linked to coins === //
 
     public int coins;
+
+    // === Properties linked to sound effects === //
+
+    // Used as internal logic for PlaySFX() in the same file
+    private AudioSource _audioSource;
+    // AudioClip used with the player
+    public AudioClip jumpAudio;
+    public AudioClip damageAudio;
     
     void Start()
     {
@@ -59,6 +67,8 @@ public class Player : MonoBehaviour
 
         // To make the player blink red when taking damage
         _spriteRenderer = GetComponent<SpriteRenderer>();
+
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -79,12 +89,14 @@ public class Player : MonoBehaviour
             if(_isGrounded) {
                 // Same logic as left and right, the first argument does not affect anything, the second jumps
                 _playerRigidBody.linearVelocity = new Vector2(_playerRigidBody.linearVelocity.x, jumpForce);
+                PlaySFX(jumpAudio);
             }
             // Allows another jump if extra jump are left
             else if (_extraJumpsLeft > 0) {
                 _playerRigidBody.linearVelocity = new Vector2(_playerRigidBody.linearVelocity.x, jumpForce);
                 // Substract one extra jump
                 _extraJumpsLeft--;
+                PlaySFX(jumpAudio);
             }
         }
 
@@ -149,6 +161,9 @@ public class Player : MonoBehaviour
         // If the player touches an object with the tag "Damageq"
         if (collision.gameObject.tag == "Damage")
         {
+
+            PlaySFX(damageAudio);
+            
             // Reduce 25 health
             health -= 25;
             // Create a knockback effect, it is basically the exact same thing as a player jump
@@ -180,5 +195,13 @@ public class Player : MonoBehaviour
         // Ensures we load the correct scene if we die by loading the current active scene
         // The built-in method between parenthesis returns the name of the current active scene
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
+
+    // Function to play AudioClip (argument 1) as a set volume (argument 2 between 0 and 1)
+    public void PlaySFX(AudioClip audioClip, float volume = 1f)
+    {
+        _audioSource.clip = audioClip;
+        _audioSource.volume = volume;
+        _audioSource.Play();
     }
 }
