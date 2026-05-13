@@ -6,7 +6,7 @@ public class RestartGame : MonoBehaviour
     // it is used with a onclick() on a button
     public void LoadCurrentScene() {
         // Reload level 1
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Level1");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         // Unfreeze the game
         Time.timeScale = 1;
     }
